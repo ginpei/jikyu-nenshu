@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#003366" />
+  <meta name="description" content="時給と年収を計算します。" />
+  <title>時給 ⇄ 年収</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="shortcut icon" href="assets/icon-512.png" />
+  <script type="module" src="assets/script.js" defer></script>
+</head>
+<body>
+  <div id="app" data-js="app" hidden>
+    <div class="layout">
+      <header class="layout-header">
+        <div class="header">
+          <div class="header-inner ui-container">
+            <h1 class="header-title">時給 ⇄ 年収</h1>
+            <div class="header-buttons">
+              <button class="header-button" data-js="openAboutDialog">
+                <svg
+                  aria-label="About this page"
+                  class="ui-icon"
+                  height="16"
+                  viewBox="0 0 512 512"
+                  width="16"
+                >
+                  <use href="#info-circle" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="layout-body">
+        <div class="contentLayout">
+          <div class="calculator ui-container ui-pin" data-js="calculator">
+            <div class="calculator-table">
+              <label class="calculator-row" data-js="wageRow">
+                <span class="calculator-label">給料</span>
+                <input
+                  class="calculator-input"
+                  data-js="wage"
+                  data-js="wage"
+                  min="761"
+                  type="number"
+                />
+                <span class="calculator-unit">円 / 時間</span>
+              </label>
+              <label class="calculator-row" data-js="annualIncomeRow">
+                <span class="calculator-label">給料</span>
+                <input
+                  class="calculator-input"
+                  data-js="annualIncome"
+                  data-js="wage"
+                  min="0"
+                  step="50"
+                  type="number"
+                />
+                <span class="calculator-unit">万円 / 年</span>
+              </label>
+              <label class="calculator-row">
+                <span class="calculator-label">就労</span>
+                <input
+                  class="calculator-input"
+                  data-js="hours"
+                  max="24"
+                  min="1"
+                  type="number"
+                />
+                <span class="calculator-unit">時間 / 日</span>
+              </label>
+              <label class="calculator-row">
+                <span class="calculator-label">出勤</span>
+                <input
+                  class="calculator-input"
+                  data-js="days"
+                  max="7"
+                  min="1"
+                  type="number"
+                />
+                <span class="calculator-unit">日 / 週</span>
+              </label>
+            </div>
+          </div>
+          <div class="result" data-js="calculationResult">
+            <h2 class="result-title">結果</h2>
+            <div class="result-main">
+              <div data-js="annualIncome" hidden>
+                <span class="result-label">年収</span>
+                <span
+                  class="result-number"
+                  data-js="annualIncomeText"
+                ></span>
+                円
+              </div>
+              <div data-js="wage" hidden>
+                <span class="result-label">時給</span>
+                <span
+                  class="result-number"
+                  data-js="wageText"
+                ></span>
+                円
+              </div>
+            </div>
+          </div>
+          <div class="contentLayout-button" data-js="toggleForm">
+            <div class="toggleButton-wrapper ui-container">
+              <button class="toggleButton" data-js="toggle">
+                <span data-js="annualIncome" hidden>🕒 → 💰</span>
+                <span data-js="wage" hidden>🕒 ← 💰</span>
+              </button>
+              <button class="toggleButton" data-js="openPresetsDialog">
+                <svg
+                  aria-label="プリセット"
+                  class="ui-icon"
+                  height="16"
+                  viewBox="0 0 512 512"
+                  width="16"
+                >
+                  <use href="#sliders-h" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="dialog-outer"
+      data-js="aboutDialog"
+      hidden
+    >
+      <article class="dialog">
+        <div class="dialog-header">
+          <h1 class="dialog-title">アプリについて</h1>
+        </div>
+        <div class="dialog-body">
+          <section class="settingsGroup">
+            <div class="settingItem">
+              お金はあった方が良いけれど、かといって収入が多いから偉いとかそういうわけでもないと思います。
+            </div>
+          </section>
+          <section class="settingsGroup">
+            <h2 class="settingsGroup-heading">参考</h2>
+            <div class="settingItem">
+              地域別最低賃金の全国一覧（厚生労働省）
+              <br>
+              <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/index.html">https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/index.html</a>
+            </div>
+            <div class="settingItem">
+              2018年度 決定初任給調査 | 決定初任給調査 | 賃金制度・春闘 | 産労総合研究所
+              <br>
+              <a href="https://www.e-sanro.net/research/research_jinji/chinginseido/shoninkyu/pr1807.html">https://www.e-sanro.net/research/research_jinji/chinginseido/shoninkyu/pr1807.html</a>
+            </div>
+            <div class="settingItem">
+              球団別情報 - 契約更改 - プロ野球 : 日刊スポーツ
+              <br>
+              <a href="https://www.nikkansports.com/baseball/professional/koukai/team/">https://www.nikkansports.com/baseball/professional/koukai/team/</a>
+            </div>
+            <div class="settingItem">
+              2019年度予算案を閣議決定　一般会計101兆4564億円、初の100兆円超え　　:日本経済新聞
+              <br>
+              <a href="https://www.nikkei.com/article/DGXLASFL20HSU_R21C18A2000000/">https://www.nikkei.com/article/DGXLASFL20HSU_R21C18A2000000/</a>
+            </div>
+            <div class="settingItem">
+              2019年度予算教書 ｜ 外務省
+              <br>
+              <a href="https://www.mofa.go.jp/mofaj/na/na2/us/page25_001258.html">https://www.mofa.go.jp/mofaj/na/na2/us/page25_001258.html</a>
+            </div>
+            <div class="settingItem">
+              ケースワベ【K-SUWABE】 on Twitter: "https://t.co/Pa7w1QkgjK" / Twitter
+              <br>
+              <a href="https://twitter.com/KSUWABE/status/772787103910404096">https://twitter.com/KSUWABE/status/772787103910404096</a>
+            </div>
+            <div class="settingItem">
+              サッカー年俸その他に関する信頼のおける情報源を探しています。
+            </div>
+          </section>
+          <section class="settingsGroup">
+            <h2 class="settingsGroup-heading">権利</h2>
+            <div class="settingItem">
+              このアプリは<a href="http://github.com/ginpei/">高梨ギンペイ</a>が頑張って作りました。
+              GitHub にコードがあります。
+              <br/>
+              <a href="https://github.com/ginpei/">https://github.com/ginpei/</a>
+            </div>
+            <div class="settingItem">
+              Icon SVG files are from <a href="https://fontawesome.com/license">Font Awesome</a>.
+              They are modified to use via <code>&lt;use&gt;</code> .
+            </div>
+          </section>
+        </div>
+        <div class="dialog-footer">
+          <button data-js="done">閉じる</button>
+        </div>
+      </article>
+    </div>
+    <div
+      class="dialog-outer"
+      data-js="presetsDialog"
+      hidden
+    >
+      <article class="dialog">
+        <div class="dialog-header">
+          <h1 class="dialog-title">プリセット</h1>
+        </div>
+        <div class="dialog-body">
+          <section class="settingsGroup">
+            <label class="settingItem">
+              <button
+                class="settingItem-button"
+                data-js="preset"
+                data-target="annualIncome"
+                data-wage="1000"
+              >
+                時給 1,000 円
+              </button>
+            </label>
+            <label class="settingItem">
+              <button
+                class="settingItem-button"
+                data-annualIncome="10000000"
+                data-js="preset"
+                data-target="wage"
+              >
+                年収 1,000 万円
+              </button>
+            </label>
+            <label class="settingItem">
+              <button
+                class="settingItem-button"
+                data-annualIncome="100000000"
+                data-js="preset"
+                data-target="wage"
+              >
+                年収 1 億円
+              </button>
+            </label>
+          </section>
+          <section class="settingsGroup">
+            <label class="settingItem">
+              東京都の最低賃金（2018 年、全国最大）
+              <button
+                class="settingItem-button"
+                data-js="preset"
+                data-target="annualIncome"
+                data-wage="985"
+              >
+                時給 985 円
+              </button>
+            </label>
+            <label class="settingItem">
+              鹿児島県の最低賃金（2018 年、全国最小）
+              <button
+                class="settingItem-button"
+                data-js="preset"
+                data-target="annualIncome"
+                data-wage="761"
+              >
+                時給 761 円
+              </button>
+            </label>
+          </section>
+          <section class="settingsGroup">
+            <label class="settingItem">
+              大卒初任給水準（2018 年）（12 か月で 248 万円）
+              <button
+                class="settingItem-button"
+                data-annualIncome="2475996"
+                data-js="preset"
+                data-target="wage"
+              >
+                月給 20万6333 円
+              </button>
+            </label>
+            <label class="settingItem">
+              高卒初任給水準（2018 年）（12 か月で 201 万円）
+              <button
+                class="settingItem-button"
+                data-annualIncome="2006988"
+                data-js="preset"
+                data-target="wage"
+              >
+                月給 16万7249 円
+              </button>
+            </label>
+          </section>
+          <section class="settingsGroup">
+            <label class="settingItem">
+              プロ野球読売ジャイアンツ 菅野智之選手（2019年トップ）
+              <button
+                class="settingItem-button"
+                data-annualIncome="650000000"
+                data-js="preset"
+                data-target="wage"
+              >
+                年俸 6 億 5000 万円
+              </button>
+            </label>
+          </section>
+          <section class="settingsGroup">
+            <label class="settingItem">
+              2019 年度予算案（2018 年 12 月 21 日閣議決定）
+              <button
+                class="settingItem-button"
+                data-annualIncome="101456400000000"
+                data-js="preset"
+                data-target="wage"
+              >
+                一般会計 101 兆 4564 億円
+              </button>
+            </label>
+            <label class="settingItem">
+              アメリカ合衆国 2019 年度予算教書（ 1 ドル = 110 円換算）
+              <button
+                class="settingItem-button"
+                data-annualIncome="484000000000000"
+                data-js="preset"
+                data-target="wage"
+              >
+                歳出 4.4 兆ドル
+              </button>
+            </label>
+            <label class="settingItem">
+              欲しい！
+              <button
+                class="settingItem-button"
+                data-annualIncome="5000000000000000"
+                data-js="preset"
+                data-target="wage"
+              >
+                5000 兆円
+              </button>
+            </label>
+          </section>
+        </div>
+        <div class="dialog-footer">
+          <button data-js="done">閉じる</button>
+        </div>
+      </article>
+    </div>
+  </div>
+  <svg display="none" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sliders-h" class="svg-inline--fa fa-sliders-h fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path id="sliders-h" fill="currentColor" d="M496 384H160v-16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h80v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h336c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-160h-80v-16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h336v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h80c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-160H288V48c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v16H16C7.2 64 0 71.2 0 80v32c0 8.8 7.2 16 16 16h208v16c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-16h208c8.8 0 16-7.2 16-16V80c0-8.8-7.2-16-16-16z"></path>
+  </svg>
+  <svg display="none" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path id="info-circle" fill="currentColor" d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"></path>
+  </svg>
+</body>
+</html>

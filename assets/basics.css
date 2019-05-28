@@ -1,0 +1,99 @@
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+button {
+  min-height: 2rem;
+}
+
+.ui-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: calc(100% - 2rem);
+  max-width: calc(800px - 2rem);
+}
+
+.ui-pin {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: auto;
+  padding: 1rem;
+}
+
+.ui-icon {
+  height: 1em;
+  vertical-align: bottom;
+  width: 1em;
+}
+
+#app {
+  height: 100%;
+}
+
+/**
+* Base layout
+*/
+
+.layout {
+  --layout-header-height: 50px;
+
+  display: grid;
+  height: 100%;
+  grid-template:
+    "header" var(--layout-header-height)
+    "body" calc(100% - var(--layout-header-height))
+    / 100%
+}
+
+.layout-header {
+  display: grid;
+  grid-area: header;
+}
+
+.layout-body {
+  display: grid;
+  grid-area: body;
+}
+
+/**
+* Header
+*/
+
+.header {
+  background-color: #036;
+  color: #fff;
+  line-height: var(--layout-header-height);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-size: 1em;
+  margin: 0;
+}
+
+.header-buttons {
+  display: flex;
+}
+
+.header-button {
+  background-color: transparent;
+  border-style: none;
+  color: inherit;
+  line-height: 100%;
+  margin-left: 0.5em;
+  width: 3rem;
+}

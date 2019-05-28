@@ -1,0 +1,104 @@
+/**
+* Dialog
+*/
+
+.dialog-outer {
+  background-color: #0003;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.dialog {
+  background-color: #fff;
+  border-radius: 0.2rem;
+  bottom: 1rem;
+  display: grid;
+  grid-template:
+    "header" 3rem
+    "main" auto
+    "footer" 3rem
+    / auto;
+  left: 1rem;
+  margin: auto;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  max-width: calc(800px - 2rem);
+}
+
+.dialog-title {
+  padding-left: 1rem;
+  font-size: 1.5em;
+  margin: 0;
+  line-height: 3rem;
+}
+
+.dialog-body {
+  overflow: auto;
+}
+
+.dialog-footer {
+  line-height: 3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/**
+* Settings
+*/
+
+.settingsGroup {
+  margin-bottom: 1rem;
+}
+
+.settingsGroup-heading {
+  font-size: 0.8em;
+  line-height: 1.5rem;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.settingItem:not([hidden]) {
+  background-color: #f9fcff;
+  border-color: #ccc;
+  border-style: solid none;
+  border-width: 1px;
+  color: #666;
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.5em;
+  overflow: auto;
+  padding: 0.5rem 1rem;
+}
+
+.settingItem + .settingItem {
+  border-top-style: none;
+}
+
+.settingItem-label {
+  display: block;
+}
+
+.settingItem-input {
+  box-sizing: border-box;
+  height: 2rem;
+  line-height: 2rem;
+  width: 100%;
+}
+
+.settingItem-button {
+  background-color: transparent;
+  border-style: none;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: initial;
+  width: 100%;
+}
+
+.settingItem-button:not(:disabled) {
+  color: #00f;
+  text-decoration: underline;
+}

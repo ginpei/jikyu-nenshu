@@ -1,0 +1,90 @@
+/**
+* Content layout
+*/
+
+.contentLayout {
+  display: grid;
+  grid-template:
+    "main" auto
+    "result" auto
+    "button" calc(4rem + 2rem)
+    / 100%;
+}
+
+.contentLayout-button {
+  padding: 1rem;
+}
+
+/**
+* Calculator
+*/
+
+.calculator-table {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calculator-row:not([hidden]) {
+  display: table-row;
+}
+
+.calculator-label,
+.calculator-input,
+.calculator-unit {
+  display: table-cell;
+  padding: 0.2rem 0.5rem;
+}
+
+.calculator-label {
+  font-weight: bold;
+}
+
+.calculator-input {
+  width: 5rem;
+  text-align: right;
+}
+
+.calculator-unit {
+  text-align: left;
+}
+
+/**
+* Result
+*/
+
+.result-title {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.result-main {
+  font-size: 9vw;
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .result-main {
+    font-size: 72px;
+  }
+}
+
+.result-number {
+  font-weight: bold;
+}
+
+/**
+* Toggle button on the bottom
+*/
+
+.toggleButton-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.toggleButton {
+  font-size: 2rem;
+  height: 100%;
+  padding: 0;
+  width: 100%;
+}
