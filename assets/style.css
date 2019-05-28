@@ -3,10 +3,10 @@
 @import "./dialog.css";
 
 .shuchusen {
-  height: 100%;
+  height: 100vh;
   left: 0;
   pointer-events: none;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
 }
