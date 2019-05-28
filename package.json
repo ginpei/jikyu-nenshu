@@ -18,11 +18,10 @@
     "url": "https://github.com/ginpei/pwa-note/issues"
   },
   "homepage": "https://github.com/ginpei/pwa-note#readme",
-  "dependencies": {
-    "browser-sync": "^2.26.5",
-    "typescript": "^3.4.5"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "browser-sync": "^2.26.5",
+    "typescript": "^3.4.5",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3"
