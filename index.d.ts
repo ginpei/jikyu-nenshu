@@ -56,3 +56,24 @@ type PresetsDialogResult = {
   target: 'wage';
   annualIncome: number;
 }
+
+interface ShuchusenProps {
+  accuracy: number;
+  centerRadius: number; // 0 to 1
+  density: number;
+  el: HTMLCanvasElement;
+}
+
+interface ShuchusenContext {
+  accuracy: number;
+  canvas: HTMLCanvasElement;
+  centerRadius: number; // 0 to 1
+  canvasContext: CanvasRenderingContext2D;
+  cx: number;
+  cy: number;
+  density: number;
+  height: number;
+  vmax: number;
+  vmin: number;
+  width: number;
+}

@@ -3,6 +3,7 @@ import CalculationForm from './CalculationForm.js';
 import CalculationResult from './CalculationResult.js';
 import { findElement } from './misc.js';
 import PresetsDialog from './PresetsDialog.js';
+import Shuchusen from './Shuchusen.js';
 import ToggleForm from './ToggleForm.js';
 
 function main () {
@@ -36,6 +37,14 @@ function main () {
 
     // eslint-disable-next-line no-use-before-define
     toggleForm.updateProps({ target });
+
+    if (
+      (target === 'annualIncome' && values.annualIncome > 100000000)
+      || (target === 'wage' && values.wage > 100000)
+    ) {
+      // eslint-disable-next-line no-use-before-define
+      shuchusen.emphasize();
+    }
   };
 
   /**
@@ -101,6 +110,13 @@ function main () {
 
       presetsDialog.hide();
     },
+  });
+
+  const shuchusen = new Shuchusen({
+    accuracy: 0.7,
+    centerRadius: 0.7,
+    density: 100,
+    el: findElement(document.body, 'shuchusen'),
   });
 
   findElement(document.body, 'openAboutDialog')
