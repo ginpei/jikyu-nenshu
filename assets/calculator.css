@@ -83,8 +83,12 @@
 }
 
 .toggleButton {
+  background-color: #f0f0f0;
+  border-radius: 1px; /* for Safari */
+  border: 1px solid #666;
   font-size: 2rem;
   height: 100%;
+  margin: 0 2px;
   padding: 0;
   width: 100%;
 }
