@@ -41,8 +41,9 @@
 }
 
 .calculator-input {
-  width: 5rem;
+  min-height: 50px;
   text-align: right;
+  width: 5rem;
 }
 
 .calculator-unit {
