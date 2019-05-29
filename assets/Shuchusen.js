@@ -37,23 +37,23 @@ export default class Shuchusen {
         el.style.opacity = String(1 - elapse / duration);
 
         this._drawFrame(c);
-        this._animationId = window.requestAnimationFrame(f);
+        // this._animationId = window.requestAnimationFrame(f);
       };
       f();
 
-      if (this._animation) {
-        this._animation.cancel();
-      }
-      if (this.props.el.animate) {
-        this._animation = this.props.el.animate([
-          { opacity: 1 },
-          { opacity: 1 },
-          { opacity: 1 },
-          { opacity: 0 },
-        ], {
-          duration,
-        });
-      }
+      // if (this._animation) {
+      //   this._animation.cancel();
+      // }
+      // if (this.props.el.animate) {
+      //   this._animation = this.props.el.animate([
+      //     { opacity: 1 },
+      //     { opacity: 1 },
+      //     { opacity: 1 },
+      //     { opacity: 0 },
+      //   ], {
+      //     duration,
+      //   });
+      // }
     });
   }
 

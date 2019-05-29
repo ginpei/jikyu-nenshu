@@ -7,6 +7,19 @@ import Shuchusen from './Shuchusen.js';
 import ToggleForm from './ToggleForm.js';
 
 function main () {
+  const shuchusen = new Shuchusen({
+    accuracy: 0.7,
+    centerRadius: 0.7,
+    density: 300,
+    el: findElement(document.body, 'shuchusen'),
+  });
+  shuchusen.emphasize();
+
+  findElement(document.body, 'layout').style.display = 'none';
+  findElement(document.body, 'app').hidden = false;
+}
+
+function x () {
   /** @type {AppState} */
   let appState = {
     target: 'annualIncome',
