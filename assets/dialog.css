@@ -21,6 +21,7 @@
     "main" auto
     "footer" 3rem
     / auto;
+  height: calc(100% - 2rem); /* for Safari */
   left: 1rem;
   margin: auto;
   position: absolute;
