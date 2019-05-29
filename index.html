@@ -115,8 +115,16 @@
           <div class="contentLayout-button" data-js="toggleForm">
             <div class="toggleButton-wrapper ui-container">
               <button class="toggleButton" data-js="toggle">
-                <span data-js="annualIncome" hidden>🕒 → 💰</span>
-                <span data-js="wage" hidden>🕒 ← 💰</span>
+                <span data-js="annualIncome" hidden>
+                  <span aria-label="時給">🕒</span>
+                  →
+                  <span aria-label="年収">💰</span>
+                </span>
+                <span data-js="wage" hidden>
+                  <span aria-label="時給">🕒</span>
+                  ←
+                  <span aria-label="年収">💰</span>
+                </span>
               </button>
               <button class="toggleButton" data-js="openPresetsDialog">
                 <svg
